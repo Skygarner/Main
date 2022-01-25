@@ -1,0 +1,24 @@
+#Skylar garner
+filename = '/content/drive/MyDrive/csc302/lego_setsHB.csv'
+
+price = {}
+difficulty = {}
+
+with open(filename, 'r') as fl:
+    next(fl) #will help you skip the first line in which we have the headers
+    s = 0
+    for line in fl:
+      while s < 1000:                 #1000 line loop
+       s = s + 1
+      #print(fl.readlines(x))                        #output needed varribles
+      print(line.split(",")[4] +                     # product ID
+              "    " + line.split(",")[0] +          # price
+              "    " + line.split(",")[5])           # difficulity 
+
+
+        
+ 
+
+
+for key, value in price.items():
+    print(key, value, difficulty[key])
