@@ -1,0 +1,22 @@
+#number 1 
+legos.info()
+legos.describe()
+
+#number 2
+legos[legos['star_rating']>=4]
+
+#number 3
+legos[legos['star_rating']>=4].count()
+
+legos4 = legos[legos['star_rating']>=4]
+legos4.shape
+
+
+#number 4
+legos.loc[legos['star_rating']>=4, ['list_price']].mean()
+
+
+legos4['list_price'].mean()
+
+legos.iloc[1,3]
+legos.loc[1, 'list_price']
