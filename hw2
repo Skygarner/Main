@@ -1,0 +1,44 @@
+#part 1 -SKYLAR GARNER
+df1=data.frame(Name=c('James','Paul','Richards','Marico','Samantha','Ravi','Raghu',    #df creats a table for \/
+'Richards','George','Ema','Samantha','Catherine'),                                     #(1-2) creats a data set for 12 names
+State=c('Alaska','California','Texas','North Carolina','California','Texas',           #(3-4) creats a data set for 12 ststes
+'Alaska','Texas','North Carolina','Alaska','California','Texas'),
+Sales=c(14,24,31,12,13,7,9,31,18,16,18,14))                                            #(5-6) creats a data set for 12 sales
+aggregate(df1$Sales, by=list(df1$State), FUN=sum)                                      #(7) aggregate sum = sum all sales by state
+library(dplyr)                                                                         #(8)connects to the package dplyr
+df1 %>% group_by(State) %>% summarise(sum_sales = sum(Sales))                          #(9) creats a summarise data set sorted by state
+
+
+#part2
+df = read.delim('C:/Users/garne/Desktop/2022 winter/csc302/data/WorldCupMatches.csv', sep = ',', header = TRUE )
+head(df)
+
+#2.a
+nrow(df)
+ncol(df)
+#2.b
+summary(df)
+#2.c
+unique(df$City)
+#2.d
+mean(df$Attendance)
+#2.e
+aggregate(df$Home.Team.Goals, by=list(df$Home.Team.Name ), FUN=sum)
+#2.f
+aggregate(df$Attendance, by=list(df$Year), FUN=mean)
+
+#part3
+df2 = read.delim('C:/Users/garne/Desktop/2022 winter/csc302/data/metabolite.csv', sep = ',', header = TRUE )
+#3.a
+library(dplyr)
+df2  %>% count('Alzheimer')
+
+#3.b
+sum(is.na(df2)) #total na
+colSums(is.na(df2))#each col na
+
+#3.c
+data.frame(df3,is.na(df2$Dopamine))
+
+#3.d
+(is.na(df3$c4-OH-Pro))=median(df3$c4-OH-Pro)
