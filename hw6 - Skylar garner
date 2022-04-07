@@ -1,0 +1,30 @@
+library(ggridges)
+library(lubridate)
+library(ggrepel)
+library(ggplot2)
+library(mapdata)
+library(dplyr)
+library(maps)
+library(tidyr)
+library(reshape2)
+
+
+
+ggplot(data = house_prices, aes(x = date,y = house_price_index)) +
+  geom_line(color = "steelblue", size = 1) +
+  geom_point(color="steelblue") + 
+  scale_x_continuous(breaks=c(1980,2000,2020),labels=c("80","00","20")) +
+  facet_wrap(~ state)
+
+  
+  
+  house_reshape =(gather(house_prices, "unemploy_perc", "house_price_index", -date,-state,-house_price_perc))
+  
+  ggplot(data = house_reshape, aes(x = date,y = house_price_index)) +
+    geom_line(aes(y=unemploy_perc, color = "red", size = .1)) +
+    geom_line(aes(y= house_price_index, color = "steelblue", size = .1)) +
+    geom_point() + 
+    facet_wrap(~ state)
+#-------------------------------------------------------------------------------------------------
+#    https://colab.research.google.com/drive/1hiRL0Qzz4ImkfiSz254gRE9WDJ1ZJTN-?usp=sharing
+# link to hw6 collab
